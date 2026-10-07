@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">准点助手</string>
-    <string name="notification_monitor_service_name">准点助手通知监听服务</string>
+    <string name="app_name">SUHM</string>
+    <string name="notification_monitor_service_name">SUHM通知监听服务</string>
 </resources>

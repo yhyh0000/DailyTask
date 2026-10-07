@@ -16,7 +16,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/theme_color"
+            android:background="@color/theme_color_dark"
             app:menu="@menu/main_top_bar_menu"
             app:subtitleTextAppearance="@style/TextAppearance.Material3.TitleSmall"
             app:subtitleTextColor="@color/white"
@@ -26,22 +26,104 @@
             android:id="@+id/contentView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@color/back_ground_color"
             android:orientation="vertical">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/heroCard"
+                android:layout_width="match_parent"
+                android:layout_height="164dp"
+                android:layout_marginHorizontal="@dimen/dp_12"
+                android:layout_marginTop="@dimen/dp_12"
+                android:layout_marginBottom="@dimen/dp_8"
+                android:clipChildren="false"
+                android:clipToPadding="false"
+                android:elevation="4dp"
+                app:cardBackgroundColor="@android:color/transparent"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="4dp"
+                app:strokeWidth="0dp">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bg_hero_card"
+                    android:clipChildren="false">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginEnd="@dimen/dp_136"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical"
+                        android:paddingStart="@dimen/dp_20"
+                        android:paddingEnd="@dimen/dp_8">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="SUHM"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/sp_22"
+                            android:textStyle="bold" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp_4"
+                            android:text="PUNCTUAL CONTROL"
+                            android:textColor="#D9F9FF"
+                            android:textSize="@dimen/sp_14" />
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp_12"
+                            app:cardBackgroundColor="#2B2A63"
+                            app:cardCornerRadius="12dp"
+                            app:strokeColor="#6CE8F5"
+                            app:strokeWidth="1dp">
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingHorizontal="@dimen/dp_12"
+                                android:paddingVertical="@dimen/dp_4"
+                                android:text="●  READY"
+                                android:textColor="@color/accent_cyan"
+                                android:textSize="@dimen/sp_10"
+                                android:textStyle="bold" />
+                        </com.google.android.material.card.MaterialCardView>
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="184dp"
+                        android:layout_height="184dp"
+                        android:layout_gravity="center_vertical|end"
+                        android:contentDescription="SUHM 二次元助手"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/assistant_mascot"
+                        android:translationX="8dp" />
+                </FrameLayout>
+            </com.google.android.material.card.MaterialCardView>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/white"
+                android:layout_marginHorizontal="@dimen/dp_12"
+                android:layout_marginBottom="@dimen/dp_8"
+                android:background="@drawable/bg_solid_layout_white_16"
+                android:elevation="2dp"
                 android:orientation="vertical">
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/repeatTimeView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/theme_color"
+                    android:background="@drawable/bg_status_strip"
                     android:drawablePadding="@dimen/dp_4"
                     android:paddingHorizontal="@dimen/dp_16"
-                    android:paddingTop="0dp"
+                    android:paddingTop="@dimen/dp_12"
                     android:paddingBottom="@dimen/dp_12"
                     android:singleLine="true"
                     android:text="--分钟后刷新每日任务"
@@ -80,7 +162,8 @@
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_marginVertical="@dimen/dp_8"
+                android:layout_marginHorizontal="@dimen/dp_12"
+                android:layout_marginVertical="@dimen/dp_4"
                 android:layout_weight="1">
 
                 <androidx.recyclerview.widget.RecyclerView
