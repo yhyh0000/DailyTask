@@ -16,7 +16,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/theme_color_dark"
+            android:background="@drawable/bg_toolbar"
             app:menu="@menu/main_top_bar_menu"
             app:subtitleTextAppearance="@style/TextAppearance.Material3.TitleSmall"
             app:subtitleTextColor="@color/white"
@@ -154,7 +154,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/dp_16"
                         android:text="启动"
-                        app:icon="@mipmap/ic_start"
+                        app:icon="@drawable/ic_suhm_play"
                         app:iconTint="@color/ios_green" />
                 </LinearLayout>
             </LinearLayout>

@@ -225,13 +225,13 @@ class MainActivity : KotlinBaseActivity<ActivityMainBinding>() {
         lifecycleScope.launch {
             TaskScheduler.isRunning.collectLatest { running ->
                 if (running) {
-                    binding.executeTaskButton.setIconResource(R.mipmap.ic_stop)
+                    binding.executeTaskButton.setIconResource(R.drawable.ic_suhm_stop)
                     binding.executeTaskButton.setIconTintResource(R.color.red)
                     binding.executeTaskButton.text = "停止"
                 } else {
                     dailyTaskAdapter.updateCurrentTaskState(-1)
                     binding.tipsView.text = ""
-                    binding.executeTaskButton.setIconResource(R.mipmap.ic_start)
+                    binding.executeTaskButton.setIconResource(R.drawable.ic_suhm_play)
                     binding.executeTaskButton.setIconTintResource(R.color.ios_green)
                     binding.executeTaskButton.text = "启动"
                 }
