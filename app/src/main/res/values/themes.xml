@@ -5,6 +5,10 @@
         <!-- 修改控件系统默认颜色 -->
         <item name="colorPrimary">@color/theme_color</item>
         <item name="colorSecondary">@color/theme_color</item>
+        <item name="android:statusBarColor">@color/white</item>
+        <item name="android:navigationBarColor">@color/back_ground_color</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowLightNavigationBar">true</item>
         <!-- Customize your theme here. -->
     </style>
 

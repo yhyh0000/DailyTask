@@ -31,7 +31,6 @@ import com.pengxh.daily.app.service.NotificationMonitorService
 import com.pengxh.daily.app.sqlite.DatabaseWrapper
 import com.pengxh.daily.app.sqlite.bean.DailyTaskBean
 import com.pengxh.daily.app.utils.Constant
-import com.pengxh.daily.app.utils.DailyTask
 import com.pengxh.daily.app.utils.FloatingWindowController
 import com.pengxh.daily.app.utils.GestureController
 import com.pengxh.daily.app.utils.LogFileManager
@@ -42,7 +41,6 @@ import com.pengxh.daily.app.utils.ProjectionSession
 import com.pengxh.daily.app.utils.TaskDataManager
 import com.pengxh.daily.app.utils.TaskScheduler
 import com.pengxh.daily.app.utils.TipsEvent
-import com.pengxh.daily.app.utils.WatermarkDrawable
 import com.pengxh.kt.lite.base.KotlinBaseActivity
 import com.pengxh.kt.lite.divider.RecyclerViewItemBorder
 import com.pengxh.kt.lite.extensions.convertColor
@@ -157,12 +155,7 @@ class MainActivity : KotlinBaseActivity<ActivityMainBinding>() {
                 }
 
                 R.id.menu_settings -> {
-                    MaterialAlertDialogBuilder(this)
-                        .setTitle("使用须知")
-                        .setMessage("本软件完全免费！仅供内部使用！严禁商用或者用作其他非法用途！\r\n近期发现有人在咸鱼私自倒卖本软件，请勿购买！如有购买，请联系卖家退款！")
-                        .setCancelable(false)
-                        .setPositiveButton("知道了") { _, _ -> navigatePageTo<SettingsActivity>() }
-                        .show()
+                    navigatePageTo<SettingsActivity>()
                 }
             }
             true
@@ -170,8 +163,6 @@ class MainActivity : KotlinBaseActivity<ActivityMainBinding>() {
     }
 
     override fun initOnCreate(savedInstanceState: Bundle?) {
-        binding.contentView.background = WatermarkDrawable(this, DailyTask.getWatermarkText())
-
         // 加载任务列表
         lifecycleScope.launch {
             taskBeans = withContext(Dispatchers.IO) {
@@ -229,14 +220,14 @@ class MainActivity : KotlinBaseActivity<ActivityMainBinding>() {
         lifecycleScope.launch {
             TaskScheduler.isRunning.collectLatest { running ->
                 if (running) {
-                    binding.executeTaskButton.setIconResource(R.mipmap.ic_stop)
-                    binding.executeTaskButton.setIconTintResource(R.color.red)
+                    binding.executeTaskButton.setIconResource(R.drawable.ic_ios_stop)
+                    binding.executeTaskButton.setIconTintResource(R.color.white)
                     binding.executeTaskButton.text = "停止"
                 } else {
                     dailyTaskAdapter.updateCurrentTaskState(-1)
                     binding.tipsView.text = ""
-                    binding.executeTaskButton.setIconResource(R.mipmap.ic_start)
-                    binding.executeTaskButton.setIconTintResource(R.color.ios_green)
+                    binding.executeTaskButton.setIconResource(R.drawable.ic_ios_play)
+                    binding.executeTaskButton.setIconTintResource(R.color.white)
                     binding.executeTaskButton.text = "启动"
                 }
             }
