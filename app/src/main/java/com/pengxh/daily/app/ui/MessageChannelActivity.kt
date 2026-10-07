@@ -126,7 +126,7 @@ class MessageChannelActivity : KotlinBaseActivity<ActivityMessageChannelBinding>
     private fun sendTestMessage() {
         val message = buildString {
             appendLine("你好！")
-            append("这是来自 DailyTask 的测试消息 🎉")
+            append("这是来自准点助手的测试消息 🎉")
         }
         LoadingDialog.show(this, "消息发送中，请稍后...")
         MessageDispatcher.sendMessage(

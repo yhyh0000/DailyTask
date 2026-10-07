@@ -31,7 +31,6 @@ import com.pengxh.daily.app.service.NotificationMonitorService
 import com.pengxh.daily.app.sqlite.DatabaseWrapper
 import com.pengxh.daily.app.sqlite.bean.DailyTaskBean
 import com.pengxh.daily.app.utils.Constant
-import com.pengxh.daily.app.utils.DailyTask
 import com.pengxh.daily.app.utils.FloatingWindowController
 import com.pengxh.daily.app.utils.GestureController
 import com.pengxh.daily.app.utils.LogFileManager
@@ -42,7 +41,6 @@ import com.pengxh.daily.app.utils.ProjectionSession
 import com.pengxh.daily.app.utils.TaskDataManager
 import com.pengxh.daily.app.utils.TaskScheduler
 import com.pengxh.daily.app.utils.TipsEvent
-import com.pengxh.daily.app.utils.WatermarkDrawable
 import com.pengxh.kt.lite.base.KotlinBaseActivity
 import com.pengxh.kt.lite.divider.RecyclerViewItemBorder
 import com.pengxh.kt.lite.extensions.convertColor
@@ -170,8 +168,6 @@ class MainActivity : KotlinBaseActivity<ActivityMainBinding>() {
     }
 
     override fun initOnCreate(savedInstanceState: Bundle?) {
-        binding.contentView.background = WatermarkDrawable(this, DailyTask.getWatermarkText())
-
         // 加载任务列表
         lifecycleScope.launch {
             taskBeans = withContext(Dispatchers.IO) {
